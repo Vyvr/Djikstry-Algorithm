@@ -3,6 +3,31 @@ from edge import Edge
 from node import Node
 import math
 
+#Graph no connection
+# nodeA = Node('A', False, 0)
+# nodeB = Node('B', False, math.inf)
+# nodeC = Node('C', False, math.inf)
+# nodeD = Node('D', False, math.inf)
+
+# edge1 = Edge(nodeA, nodeB, 4)
+# edge2 = Edge(nodeA, nodeC, 3)
+# edge3 = Edge(nodeB, nodeC, 7)
+
+# node_list = [
+#     nodeA,
+#     nodeB,
+#     nodeC,
+#     nodeD,
+# ]
+
+# edge_list = [
+#     edge1, 
+#     edge2,
+#     edge3,
+# ]
+
+# djikstry_algorithm = Djikstry(edge_list, node_list, nodeD)
+
 # Graph1
 nodeA = Node('A', False, 0)
 nodeB = Node('B', False, math.inf)
@@ -48,6 +73,7 @@ edge_list = [
     edge11,
     ]
 djikstry_algorithm = Djikstry(edge_list, node_list, nodeF)
+
 
 #####################
 # Graph 2

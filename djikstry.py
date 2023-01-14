@@ -1,4 +1,6 @@
 import math
+import matplotlib.pyplot as plt
+import networkx as nx
 
 class Djikstry:
     def __init__(self, edge_list, node_list, end_node):
@@ -94,11 +96,32 @@ class Djikstry:
         path = []
         self.algorithm()
 
+        distance = 0
         while node != None:
             path.append(node.id)
+            distance = distance + node.distance
             node = node.previous_node
         
         path.reverse()
 
         for node in path:
             print(node)
+        print(distance)
+
+        self.draw_graph(self.edge_list, path)
+
+    def draw_graph(self, edges, node_path):
+        G = nx.Graph()
+
+        for edge in edges:
+            G.add_edge(edge.start_node.id, edge.end_node.id, weight=edge.distance)
+                
+        pos = nx.spring_layout(G)
+        weights = nx.get_edge_attributes(G, "weight")
+
+        color_map = ['red' if node in node_path else 'blue' for node in G]        
+        nx.draw_networkx(G, pos, node_color=color_map)
+        nx.draw_networkx_edge_labels(G, pos, edge_labels=weights)
+
+        plt.title("Basic Graphs with Networkx")
+        plt.show()
